@@ -44,7 +44,7 @@ public class SocketServer1 {
 					}
 				}
 
-				/** 关闭Socket */
+				/** 关闭流以及Socket */
 				printWriter.close();
 				bufferedReader.close();
 				socket.close();

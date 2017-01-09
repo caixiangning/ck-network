@@ -37,7 +37,6 @@ public class SocketClient1 {
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			String msg = null;
 			while((msg = sysBuff.readLine()) != null){
-				
 				printWriter.println(msg);
 				// 刷新输出流，使Server马上收到该字符串
 				printWriter.flush();
