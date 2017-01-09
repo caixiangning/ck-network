@@ -1,6 +1,7 @@
 package org.codethink.communication;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -8,6 +9,7 @@ import java.net.Socket;
 
 /**
  * 
+ * 客户端与服务器进行通信的完整示例
  * https://my.oschina.net/leejun2005/blog/104955
  * 
  * @author CaiXiangNing
@@ -16,12 +18,12 @@ import java.net.Socket;
  */
 public class SocketServer1 {
 	
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
+		ServerSocket serverSocket = null;
 		try {
 			/** 创建ServerSocket */
 			// 创建一个ServerSocket在端口8080监听客户请求
-			ServerSocket serverSocket = new ServerSocket(8080);
+			serverSocket = new ServerSocket(8080);
 			System.out.println("服务器进程启动成功,等待客户端的连接!");
 			while (true) {
 				// 侦听并接受到此Socket的连接,请求到来则产生一个Socket对象，并继续执行
@@ -51,7 +53,14 @@ public class SocketServer1 {
 		} catch (Exception e) {
 			System.out.println("Exception:" + e);
 		} finally {
-			// serverSocket.close();
+			if(serverSocket != null){
+				try {
+					serverSocket.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 }

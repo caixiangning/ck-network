@@ -1,12 +1,14 @@
 package org.codethink.communication;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
 /**
  * 
+ * 客户端与服务器进行通信的完整示例
  * https://my.oschina.net/leejun2005/blog/104955
  * 
  * @author CaiXiangNing
@@ -14,11 +16,13 @@ import java.net.Socket;
  * @email caixiangning@gmail.com
  */
 public class SocketClient1 {
+	
 	public static void main(String[] args) {
+		Socket socket = null;
 		try {
 			/** 创建Socket */
 			// 创建一个流套接字并将其连接到指定 IP地址的指定端口号(本处是本机)
-			Socket socket = new Socket("127.0.0.1", 8080);
+			socket = new Socket("127.0.0.1", 8080);
 			System.out.println("客户端端进程启动成功,并成功连接服务器,准备向服务器发送消息!");
 			// 60s超时
 			socket.setSoTimeout(60000);
@@ -47,12 +51,21 @@ public class SocketClient1 {
 				}
 			}
 			
-			/** 关闭Socket */
-			// printWriter.close();
-			
-			// socket.close();
+			printWriter.close();
+			sysBuff.close();
+			bufferedReader.close();
 		} catch (Exception e) {
 			System.out.println("Exception:" + e);
+		} finally{
+			if(socket != null){
+				try {
+					socket.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.println("客户端断开与服务器之间的连接!");
+			}
 		}
 	}
 }
