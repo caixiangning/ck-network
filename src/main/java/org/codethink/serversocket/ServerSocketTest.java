@@ -12,7 +12,7 @@ import org.junit.Test;
  * 关于ServerSocket对象使用的测试类
  * 
  * @author CaiXiangNing
- * @date 2017年1月5日
+ * @date 2017年1月6日
  * @email caixiangning@gmail.com
  */
 public class ServerSocketTest {

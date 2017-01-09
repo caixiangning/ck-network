@@ -21,7 +21,7 @@ public class CloseServerSocketTest {
 			try {
 				ServerSocket serverSocket = new ServerSocket(port);
 				// 及时关闭ServerSocket
-				//serverSocket.close();
+				serverSocket.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				System.out.println("端口" + port + "已经被其他服务器进程占用!");

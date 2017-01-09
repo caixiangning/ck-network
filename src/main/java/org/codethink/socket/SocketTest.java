@@ -14,7 +14,7 @@ import org.junit.Test;
  * 关于Socket对象使用的相关测试类
  * 
  * @author CaiXiangNing
- * @date 2017年1月5日
+ * @date 2017年1月6日
  * @email caixiangning@gmail.com
  */
 public class SocketTest {
