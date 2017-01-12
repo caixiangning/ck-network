@@ -11,7 +11,7 @@ import org.junit.Test;
 
 /**
  * 
- * 
+ * 客户端
  * 
  * @author CaiXiangNing
  * @date 2017年1月12日
@@ -27,7 +27,7 @@ public class SocketClient {
 		InputStream in = socket.getInputStream();
 		ObjectInputStream ois = new ObjectInputStream(in);
 		
-		Message msg = new Message("CalculateService", "add", new Class[]{Integer.class, Integer.class}, new Object[]{new Integer(100), new Integer(200)});
+		Message msg = new Message("org.codethink.reflection.remote.CalculateService", "add", new Class[]{Integer.class, Integer.class}, new Object[]{new Integer(100), new Integer(200)});
 		oos.writeObject(msg);
 		
 		msg = (Message)ois.readObject();
@@ -38,8 +38,7 @@ public class SocketClient {
 		socket.close();
 	}
 	
-	@Test
-	public void testClient() throws IOException, Exception{
+	public static void main(String[] args) throws IOException, Exception{
 		new SocketClient().invoke();
 	}
 }

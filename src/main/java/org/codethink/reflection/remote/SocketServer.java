@@ -11,8 +11,6 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.Test;
-
 /**
  * 
  * 服务器端
@@ -54,6 +52,9 @@ public class SocketServer {
 			// 接收客户端发送的消息对象并进行反序列化
 			Message msg = (Message)ois.readObject();
 			System.out.println("服务器接收的客户端发送的消息对象是:" + msg);
+			
+			// 使用反射调用服务器的服务并生成返回结果
+			msg = this.invoke(msg);
 			// 向客户端发送包含了执行结果的消息对象
 			oos.writeObject(msg);
 			
@@ -84,26 +85,27 @@ public class SocketServer {
 			else{
 				result = method.invoke(obj, msg.getParams());
 			}
-			
 			msg.setResult(result);
+			System.out.println("远程服务器调用服务后返回的结果对象是" + msg);
 			return msg;
 		} catch(Exception e){
 			result = e;
+			System.out.println("抛出异常!");
 		}
 		
 		msg.setResult(result);
 		return msg;
 	}
 	
+	
 	/**
 	 * 启动服务器并注册服务
 	 * @throws Exception 
 	 * @throws IOException 
 	 */
-	@Test
-	public void startServer() throws IOException, Exception{
+	public static void main(String[] args) throws IOException, Exception{
 		SocketServer socketServer = new SocketServer();
-		socketServer.register("CalculateService", new CalculateServiceImpl());
+		socketServer.register("org.codethink.reflection.remote.CalculateService", new CalculateServiceImpl());
 		socketServer.service();
 	}
 }

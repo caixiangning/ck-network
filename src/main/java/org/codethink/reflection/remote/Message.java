@@ -1,5 +1,8 @@
 package org.codethink.reflection.remote;
 
+import java.io.Serializable;
+import java.util.Arrays;
+
 /**
  * 
  * 客户端与服务器通信的信息封装成的类
@@ -8,7 +11,8 @@ package org.codethink.reflection.remote;
  * @date 2017年1月12日
  * @email caixiangning@gmail.com
  */
-public class Message {
+@SuppressWarnings("serial")
+public class Message implements Serializable{
 	// 类名/服务接口名
 	private String className;
 	// 调用的方法名称
@@ -55,5 +59,12 @@ public class Message {
 
 	public Object[] getParams() {
 		return params;
+	}
+
+	@Override
+	public String toString() {
+		return "Message [className=" + className + ", methodName=" + methodName
+				+ ", paramTypes=" + Arrays.toString(paramTypes) + ", params="
+				+ Arrays.toString(params) + ", result=" + result + "]";
 	}
 }
