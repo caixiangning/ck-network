@@ -27,6 +27,9 @@ public class SocketClient {
 		InputStream in = socket.getInputStream();
 		ObjectInputStream ois = new ObjectInputStream(in);
 		// 这里是new Class[]{int.class, int.class}而不是new Class[]{Integer.class, Integer.class}
+		// Message msg = new Message("org.codethink.reflection.remote.CalculateService", "sub", new Class[]{double.class, double.class}, new Object[]{new Double(200.12), new Double(100.11)});
+		// Message msg = new Message("org.codethink.reflection.remote.CalculateService", "getTime", new Class[]{}, new Object[]{});
+		
 		Message msg = new Message("org.codethink.reflection.remote.CalculateService", "add", new Class[]{int.class, int.class}, new Object[]{new Integer(100), new Integer(200)});
 		oos.writeObject(msg);
 		
