@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /**
  * 
- * 
+ * 测试在运行中调用任意对象的方法
  * 
  * @author CaiXiangNing
  * @date 2017年1月11日
