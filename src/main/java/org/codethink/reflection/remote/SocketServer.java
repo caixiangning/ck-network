@@ -11,6 +11,8 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.Test;
+
 /**
  * 
  * 服务器端代码
@@ -103,7 +105,8 @@ public class SocketServer {
 	 * @throws Exception 
 	 * @throws IOException 
 	 */
-	public static void main(String[] args) throws IOException, Exception{
+	@Test
+	public void testServer() throws IOException, Exception{
 		SocketServer socketServer = new SocketServer();
 		socketServer.register("org.codethink.reflection.remote.CalculateService", new CalculateServiceImpl());
 		socketServer.service();

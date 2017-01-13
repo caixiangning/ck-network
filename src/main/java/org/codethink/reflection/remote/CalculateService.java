@@ -16,7 +16,7 @@ public interface CalculateService {
 	 * @param param1
 	 * @param param2
 	 */
-	public int add(int param1, int param2);
+	public Integer add(int param1, int param2);
 	
 	/**
 	 * 减法接口

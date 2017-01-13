@@ -16,7 +16,7 @@ public class CalculateServiceImpl implements CalculateService{
 	/**
 	 * 加法实现方法
 	 */
-	public int add(int param1, int param2) {
+	public Integer add(int param1, int param2) {
 		// TODO Auto-generated method stub
 		return param1 + param2;
 	}
