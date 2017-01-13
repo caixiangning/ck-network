@@ -22,6 +22,7 @@ import org.junit.Test;
  * @email caixiangning@gmail.com
  */
 public class SocketServer {
+	
 	// 存放远程对象的缓存
 	private Map<String, Object> mapCache = new HashMap<String, Object>();
 	
