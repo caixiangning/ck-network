@@ -21,6 +21,6 @@ public class StaticProxyTest {
 		CalculateService calculateService = new CalculateServiceImpl();
 		// 在代理类中注入委托类对象
 		CalculateService calculateServiceProxy = new CalculateServiceProxy(calculateService);
-		System.out.println("运行add(100, 200)程序运行结果：" +calculateServiceProxy.add(100, 200));
+		System.out.println("运行add(100, 200)程序运行结果：" + calculateServiceProxy.add(100, 200));
 	}
 }
