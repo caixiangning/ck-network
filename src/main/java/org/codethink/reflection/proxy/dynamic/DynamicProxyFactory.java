@@ -20,9 +20,9 @@ public class DynamicProxyFactory {
 		InvocationHandler handler = new InvocationHandler() {
 			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 				// TODO Auto-generated method stub
-				System.out.println("before calling " + method);
+				System.out.println("before calling： " + method);
 				Object result = method.invoke(t, args);
-				System.out.println("after calling " + method);
+				System.out.println("after calling： " + method);
 				return result;
 			}
 		};
