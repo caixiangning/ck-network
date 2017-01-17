@@ -96,7 +96,6 @@ public class SocketServer {
 			result = e;
 			System.out.println("抛出异常!");
 		}
-		
 		msg.setResult(result);
 		return msg;
 	}
