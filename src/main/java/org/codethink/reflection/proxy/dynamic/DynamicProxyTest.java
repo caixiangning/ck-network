@@ -1,5 +1,7 @@
 package org.codethink.reflection.proxy.dynamic;
 
+import org.codethink.reflection.interfaces.CalculateService;
+import org.codethink.reflection.interfaces.CalculateServiceImpl;
 import org.junit.Test;
 
 /**
