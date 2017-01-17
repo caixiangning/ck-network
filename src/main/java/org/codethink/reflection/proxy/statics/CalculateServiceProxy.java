@@ -2,6 +2,8 @@ package org.codethink.reflection.proxy.statics;
 
 import java.util.Date;
 
+import org.codethink.reflection.interfaces.CalculateService;
+
 /**
  * 
  * 服务器端服务接口代理类
