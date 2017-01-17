@@ -108,7 +108,7 @@ public class SocketServer {
 	@Test
 	public void testServer() throws IOException, Exception{
 		SocketServer socketServer = new SocketServer();
-		socketServer.register("org.codethink.reflection.remote.CalculateService", new CalculateServiceImpl());
+		socketServer.register("org.codethink.reflection.interfaces.CalculateService", new CalculateServiceImpl());
 		socketServer.service();
 	}
 }

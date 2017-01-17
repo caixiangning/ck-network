@@ -30,7 +30,7 @@ public class SocketClient {
 		// Message msg = new Message("org.codethink.reflection.remote.CalculateService", "sub", new Class[]{double.class, double.class}, new Object[]{new Double(200.12), new Double(100.11)});
 		// Message msg = new Message("org.codethink.reflection.remote.CalculateService", "getTime", new Class[]{}, new Object[]{});
 		
-		Message msg = new Message("org.codethink.reflection.remote.CalculateService", "add", new Class[]{int.class, int.class}, new Object[]{new Integer(100), new Integer(200)});
+		Message msg = new Message("org.codethink.reflection.interfaces.CalculateService", "add", new Class[]{int.class, int.class}, new Object[]{new Integer(100), new Integer(200)});
 		oos.writeObject(msg);
 		
 		msg = (Message)ois.readObject();
